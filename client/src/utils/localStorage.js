@@ -22,9 +22,7 @@ export const removeMediaId = (mediaId) => {
   if (!savedMediaIds) {
     return false;
   }
-
-  const updatedSavedMediaIds = savedMediaIds?.filter((savedMediaId) => savedMediaId !== mediaId);
+  const updatedSavedMediaIds = savedMediaIds?.filter((savedMediaId) => savedMediaId != mediaId);
   localStorage.setItem('saved_media', JSON.stringify(updatedSavedMediaIds));
-
   return true;
 };

@@ -7,7 +7,7 @@ export const QUERY_ME = gql`
       username
       email
       savedMedia {
-        bookId
+        mediaId
         image
         description
         title

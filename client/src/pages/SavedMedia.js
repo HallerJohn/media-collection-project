@@ -17,7 +17,7 @@ const SavedMedia = () => {
   const userDataLength = Object.keys(userData).length;
 
 
-  // create function that accepts the media's mongo _id value as param and deletes the media from the database
+  // create function that accepts the book's mongo _id value as param and deletes the book from the database
   const handleDeleteMedia = async (mediaId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
@@ -29,7 +29,7 @@ const SavedMedia = () => {
       const { data } = await removeMedia({
         variables: { mediaId },
       });
-
+      
       // upon success, remove media's id from localStorage
       removeMediaId(mediaId);
     } catch (err) {
@@ -51,8 +51,8 @@ const SavedMedia = () => {
       <Container>
         <h2>
         {userData.savedMedia?.length
-            ? `Viewing ${userData.savedMedia.length} Library:`
-            : 'You have nothing in your library!'}
+            ? `Viewing Library:`
+            : 'You have no saved books!'}
         </h2>
         <CardColumns>
           {userData.savedMedia?.map((media) => {
@@ -67,7 +67,7 @@ const SavedMedia = () => {
                   <Button
                     className='btn-block btn-danger'
                     onClick={() => handleDeleteMedia(media.mediaId)}>
-                    Remove from your library!
+                    Remove from library!
                   </Button>
                 </Card.Body>
               </Card>
