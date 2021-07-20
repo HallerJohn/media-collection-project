@@ -6,7 +6,6 @@ import { saveMediaIds, getSavedMediaIds } from '../utils/localStorage';
 import { useMutation } from '@apollo/react-hooks';
 import { SAVE_MEDIA } from '../utils/mutations';
 
-const API_KEY = '7e29319333f364916bc9a4617776efd0';
 
 const SearchMedia = () => {
   // create state for holding returned media data
@@ -33,7 +32,7 @@ const SearchMedia = () => {
     }
 
     try {
-      const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY||API_KEY}&query=${searchInput}`);
+      const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&query=${searchInput}`);
 
       if (!response.ok) {
         throw new Error('something went wrong!');
